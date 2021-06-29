@@ -9,7 +9,7 @@ namespace ApiRestComASPNet.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class CalculadoraController : ControllerBase
+    public class PersonController : ControllerBase
     {
         [HttpGet("mult/{firstNumber}/{secondNumber}")]
         public IActionResult Mult(string firstNumber, string secondNumber)
