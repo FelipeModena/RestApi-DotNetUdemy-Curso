@@ -15,7 +15,7 @@ namespace ApiRestComASPNet.Model
         public string FirtName {get;set;}
         [Column("last_name")]
         public string LastName { get;set;}
-        [Column("adress")]
+        [Column("address")]
         public string Adress { get;set;}
         [Column("gender")]
         public string Gender { get; set; }
