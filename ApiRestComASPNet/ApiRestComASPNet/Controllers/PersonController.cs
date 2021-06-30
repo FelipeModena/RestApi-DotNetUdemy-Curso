@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ApiRestComASPNet.Model;
+using ApiRestComASPNet.Services;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -11,95 +13,61 @@ namespace ApiRestComASPNet.Controllers
     [Route("[controller]")]
     public class PersonController : ControllerBase
     {
-        [HttpGet("mult/{firstNumber}/{secondNumber}")]
-        public IActionResult Mult(string firstNumber, string secondNumber)
-        {
-            if (isNumeric(secondNumber) && isNumeric(firstNumber))
-            {
-                var avgr = ConvertToDecimal(firstNumber) * ConvertToDecimal(secondNumber);
-                return Ok(avgr);
+        private IPersonService _personService;
 
+        public PersonController(IPersonService personService)
+        {
+            _personService = personService;
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult Get(long id)
+        {
+            return Ok(_personService.FindById(1));
+        }
+
+        [HttpGet ]
+        public IActionResult Get()
+        {
+            var person = Ok(_personService.FindAll());
+            if (person==null)
+            {
+                return NotFound();
+            }
+            return person;
+        }
+        
+        [HttpPost]
+        public IActionResult Post([FromBody] Person person)
+        {
+            if (person == null)
+            {
+                return BadRequest();
             }
             else
             {
-                return BadRequest("faio");
+              return  Ok(_personService.Create(person));
             }
         }
 
-        [HttpGet("avgr/{firstNumber}/{secondNumber}")]
-        public IActionResult Avgr(string firstNumber, string secondNumber)
+        [HttpPut]
+        public IActionResult Put([FromBody] Person person)
         {
-            if (isNumeric(secondNumber) && isNumeric(firstNumber))
+            if (person == null)
             {
-                var avgr = (ConvertToDecimal(firstNumber) +ConvertToDecimal(secondNumber))/ 2;
-            return Ok(avgr);
-
+                return BadRequest();
             }
             else
             {
-                return BadRequest("faio");
+                return Ok(_personService.Update(person));
             }
         }
 
-        [HttpGet("sqr/{firstNumber}")]
-        public IActionResult Sqr(string firstNumber)
+        [HttpDelete("{id}")]
+        public IActionResult Delete(long id)
         {
-            if ( isNumeric(firstNumber))
-            {
-                var sum = Math.Sqrt((double)ConvertToDecimal(firstNumber));
-                return Ok(sum.ToString());
-
-            }
-            return BadRequest("Invalid input");
-        }
-
-
-        [HttpGet ("sub/{firstNumber}/{secondNumber}")]
-        public IActionResult Sub(string firstNumber, string secondNumber)
-        {
-            if (isNumeric(secondNumber) && isNumeric(firstNumber))
-            {
-                var sum = ConvertToDecimal(firstNumber) - ConvertToDecimal(secondNumber);
-                return Ok(sum.ToString());
-
-            }
-            return BadRequest("Invalid input");
-        }
-
-        [HttpGet("sum/{firstNumber}/{secondNumber}")]
-        public IActionResult Sum(string firstNumber, string secondNumber)
-        {
-            if (isNumeric(secondNumber) && isNumeric(firstNumber))
-            {
-                var sum = ConvertToDecimal(firstNumber) + ConvertToDecimal(secondNumber);
-                return Ok(sum.ToString());
-
-            }
-            return BadRequest("Invalid input");
-        }
-
-        private decimal ConvertToDecimal(string strNumber)
-        {
-            decimal decimalValue;
-            if (decimal.TryParse(strNumber, out decimalValue))
-            {
-                return decimalValue;
-            }
-            else
-            {
-                return 0;
-            }
-        }
-
-        private bool isNumeric(string strNumber)
-        {
-            double number;
-            bool isNumber = double.TryParse(
-                strNumber,
-                System.Globalization.NumberStyles.Any,
-                System.Globalization.NumberFormatInfo.InvariantInfo,
-                out number);
-            return isNumber;
+            _personService.Delete(id);
+            return NoContent();
         }
     }
 }
