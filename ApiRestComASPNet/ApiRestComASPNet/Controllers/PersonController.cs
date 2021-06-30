@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace ApiRestComASPNet.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("[controller]/api/")]
     public class PersonController : ControllerBase
     {
         private IPersonService _personService;
@@ -23,7 +23,8 @@ namespace ApiRestComASPNet.Controllers
         [HttpGet("{id}")]
         public IActionResult Get(long id)
         {
-            return Ok(_personService.FindById(1));
+            var person = _personService.FindById(id);
+                return Ok(person);
         }
 
         [HttpGet ]
@@ -34,7 +35,7 @@ namespace ApiRestComASPNet.Controllers
             {
                 return NotFound();
             }
-            return person;
+            return (person);
         }
         
         [HttpPost]
