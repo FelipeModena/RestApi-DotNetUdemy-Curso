@@ -21,3 +21,11 @@ D:\GitRepositorio\RestApi-DotNetUdemy-Curso\ApiRestComASPNet\ApiRestComASPNet\ob
 D:\GitRepositorio\RestApi-DotNetUdemy-Curso\ApiRestComASPNet\ApiRestComASPNet\obj\Debug\net5.0\ref\ApiRestComASPNet.dll
 D:\GitRepositorio\RestApi-DotNetUdemy-Curso\ApiRestComASPNet\ApiRestComASPNet\obj\Debug\net5.0\ApiRestComASPNet.pdb
 D:\GitRepositorio\RestApi-DotNetUdemy-Curso\ApiRestComASPNet\ApiRestComASPNet\obj\Debug\net5.0\ApiRestComASPNet.genruntimeconfig.cache
+D:\GitRepositorio\RestApi-DotNetUdemy-Curso\ApiRestComASPNet\ApiRestComASPNet\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
+D:\GitRepositorio\RestApi-DotNetUdemy-Curso\ApiRestComASPNet\ApiRestComASPNet\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\GitRepositorio\RestApi-DotNetUdemy-Curso\ApiRestComASPNet\ApiRestComASPNet\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\GitRepositorio\RestApi-DotNetUdemy-Curso\ApiRestComASPNet\ApiRestComASPNet\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
+D:\GitRepositorio\RestApi-DotNetUdemy-Curso\ApiRestComASPNet\ApiRestComASPNet\bin\Debug\net5.0\MySqlConnector.dll
+D:\GitRepositorio\RestApi-DotNetUdemy-Curso\ApiRestComASPNet\ApiRestComASPNet\bin\Debug\net5.0\Pomelo.EntityFrameworkCore.MySql.dll
+D:\GitRepositorio\RestApi-DotNetUdemy-Curso\ApiRestComASPNet\ApiRestComASPNet\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
+D:\GitRepositorio\RestApi-DotNetUdemy-Curso\ApiRestComASPNet\ApiRestComASPNet\obj\Debug\net5.0\ApiRestComASPNet.csproj.CopyComplete
