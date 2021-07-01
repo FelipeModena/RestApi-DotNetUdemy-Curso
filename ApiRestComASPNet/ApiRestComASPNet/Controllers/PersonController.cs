@@ -1,5 +1,5 @@
 ﻿using ApiRestComASPNet.Model;
-using ApiRestComASPNet.Services;
+using ApiRestComASPNet.Business;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -10,27 +10,28 @@ using System.Threading.Tasks;
 namespace ApiRestComASPNet.Controllers
 {
     [ApiController]
-    [Route("[controller]/api/")]
+    [ApiVersion("1")]
+    [Route("api/[controller]/v{version:apiVersion}")]
     public class PersonController : ControllerBase
     {
-        private IPersonService _personService;
+        private IPersonBusiness _personBusiness;
 
-        public PersonController(IPersonService personService)
+        public PersonController(IPersonBusiness personBusiness)
         {
-            _personService = personService;
+            _personBusiness = personBusiness;
         }
 
         [HttpGet("{id}")]
         public IActionResult Get(long id)
         {
-            var person = _personService.FindById(id);
+            var person = _personBusiness.FindById(id);
                 return Ok(person);
         }
 
         [HttpGet ]
         public IActionResult Get()
         {
-            var person = Ok(_personService.FindAll());
+            var person = Ok(_personBusiness.FindAll());
             if (person==null)
             {
                 return NotFound();
@@ -47,7 +48,7 @@ namespace ApiRestComASPNet.Controllers
             }
             else
             {
-              return  Ok(_personService.Create(person));
+              return  Ok(_personBusiness.Create(person));
             }
         }
 
@@ -60,14 +61,14 @@ namespace ApiRestComASPNet.Controllers
             }
             else
             {
-                return Ok(_personService.Update(person));
+                return Ok(_personBusiness.Update(person));
             }
         }
 
         [HttpDelete("{id}")]
         public IActionResult Delete(long id)
         {
-            _personService.Delete(id);
+            _personBusiness.Delete(id);
             return NoContent();
         }
     }
