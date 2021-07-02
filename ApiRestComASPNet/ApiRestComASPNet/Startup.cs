@@ -15,9 +15,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ApiRestComASPNet.Repository;
-using ApiRestComASPNet.Repository.Implementations;
 using Serilog;
 using MySqlConnector;
+using ApiRestComASPNet.Repository.Generic;
 
 namespace ApiRestComASPNet
 {
@@ -48,12 +48,16 @@ namespace ApiRestComASPNet
             var MySqlConnectionString = Configuration.GetConnectionString("MySQLString");
             services.AddDbContext<MySqlContext>(optionsAction => optionsAction.UseMySql(MySqlConnectionString, ServerVersion.AutoDetect(MySqlConnectionString)));
             #endregion
+
             #region Declaração de serviços para de Business e seu devido Repository
+
+            
+            services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
+
             services.AddScoped<IPersonBusiness, PersonBusinessImplementation>();
-            services.AddScoped<IPersonRepository, PersonRepositoryImplementation>();
 
             services.AddScoped<IBooksBusiness, BooksBusinessImplementation>();
-            services.AddScoped<IBooksRepository, BooksRepositoryImplementation>();
+
             #endregion
 
             if (Enviroment.IsDevelopment())

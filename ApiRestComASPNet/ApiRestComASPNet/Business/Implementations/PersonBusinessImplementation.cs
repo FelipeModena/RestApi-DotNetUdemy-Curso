@@ -1,6 +1,7 @@
 ﻿using ApiRestComASPNet.Model;
 using ApiRestComASPNet.Model.Context;
 using ApiRestComASPNet.Repository;
+using ApiRestComASPNet.Repository.Generic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,8 +12,8 @@ namespace ApiRestComASPNet.Business.Implementations
 {
     public class PersonBusinessImplementation : IPersonBusiness
     {
-        private readonly IPersonRepository _repository;
-        public PersonBusinessImplementation(IPersonRepository repository)
+        private readonly IRepository<Person> _repository;
+        public PersonBusinessImplementation(IRepository<Person> repository)
         {
             _repository = repository;
         }

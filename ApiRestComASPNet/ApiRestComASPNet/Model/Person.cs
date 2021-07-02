@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 namespace ApiRestComASPNet.Model
 {
     [Table("person")]
-    public class Person
+    public class Person:BaseEntity
     {
-        [Column("id")]
-        public long Id { get; set; }
         [Column("first_name")]
         public string FirtName {get;set;}
         [Column("last_name")]

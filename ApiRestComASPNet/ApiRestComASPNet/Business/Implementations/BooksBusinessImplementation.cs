@@ -1,5 +1,6 @@
 ﻿using ApiRestComASPNet.Model;
 using ApiRestComASPNet.Repository;
+using ApiRestComASPNet.Repository.Generic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,8 @@ namespace ApiRestComASPNet.Business.Implementations
 {
     public class BooksBusinessImplementation : IBooksBusiness
     {
-        private readonly IBooksRepository _repository;
-
-        public BooksBusinessImplementation(IBooksRepository repository)
+        private readonly IRepository<Book> _repository;
+        public BooksBusinessImplementation(IRepository<Book> repository)
         {
             _repository = repository;
         }
