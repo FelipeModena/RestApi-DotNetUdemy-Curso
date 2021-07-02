@@ -35,6 +35,7 @@
         "dependencies": {
           "Evolve": "3.0.0",
           "Microsoft.AspNetCore.Mvc.Versioning": "5.0.0",
+          "Microsoft.EntityFrameworkCore": "5.0.7",
           "Pomelo.EntityFrameworkCore.MySql": "5.0.1",
           "Serilog": "2.10.0",
           "Serilog.AspNetCore": "4.1.0",

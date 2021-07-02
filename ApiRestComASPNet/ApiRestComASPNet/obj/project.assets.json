@@ -4147,6 +4147,7 @@
     "net5.0": [
       "Evolve >= 3.0.0",
       "Microsoft.AspNetCore.Mvc.Versioning >= 5.0.0",
+      "Microsoft.EntityFrameworkCore >= 5.0.7",
       "Pomelo.EntityFrameworkCore.MySql >= 5.0.1",
       "Serilog >= 2.10.0",
       "Serilog.AspNetCore >= 4.1.0",
@@ -4204,6 +4205,10 @@
           "Microsoft.AspNetCore.Mvc.Versioning": {
             "target": "Package",
             "version": "[5.0.0, )"
+          },
+          "Microsoft.EntityFrameworkCore": {
+            "target": "Package",
+            "version": "[5.0.7, )"
           },
           "Pomelo.EntityFrameworkCore.MySql": {
             "target": "Package",
