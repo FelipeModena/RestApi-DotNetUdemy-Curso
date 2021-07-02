@@ -6,6 +6,7 @@ namespace ApiRestComASPNet.Model.Context
     {
         public MySqlContext(DbContextOptions<MySqlContext> options) : base(options)
         { }
-            public DbSet<Person> Person { get; set; }
+        public DbSet<Person> Person { get; set; }
+        public DbSet<Book> Books { get; set; }
     }
 }

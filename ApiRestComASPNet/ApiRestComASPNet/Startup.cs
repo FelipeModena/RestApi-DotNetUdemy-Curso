@@ -51,6 +51,9 @@ namespace ApiRestComASPNet
             #region Declaração de serviços para de Business e seu devido Repository
             services.AddScoped<IPersonBusiness, PersonBusinessImplementation>();
             services.AddScoped<IPersonRepository, PersonRepositoryImplementation>();
+
+            services.AddScoped<IBooksBusiness, BooksBusinessImplementation>();
+            services.AddScoped<IBooksRepository, BooksRepositoryImplementation>();
             #endregion
 
             if (Enviroment.IsDevelopment())
